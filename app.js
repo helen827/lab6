@@ -14,6 +14,7 @@ var project = require('./routes/project');
 // var user = require('./routes/user');
 
 var app = express();
+var color = require('./routes/palette.js')
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -38,6 +39,8 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/project/:id', project.projectInfo);
+app.get('/palette', color.randomPalette);
+
 // Example route
 // app.get('/users', user.list);
 
